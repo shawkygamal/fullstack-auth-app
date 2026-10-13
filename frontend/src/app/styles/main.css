@@ -1,39 +1,36 @@
 /* Global layer: design tokens, a minimal reset and a few utilities. Component styles live in their SFCs (scoped). */
 
-/*
- * One dark, monochrome theme modelled on cal.com's dark tokens (packages/config/theme/tokens.css):
- * near-black surfaces, a neutral grey scale, white primary actions and colour reserved for status.
- * Contrast on the card: text 12–17:1, secondary text 7:1, control borders ≥ 3:1 (WCAG 1.4.11).
- */
+/* Deep charcoal surfaces with a restrained violet accent. */
 :root {
   color-scheme: dark;
 
-  --color-bg: #0a0a0a;
-  --color-surface: #141414;
-  --color-field: #0a0a0a;
-  --color-border: #262626;
-  --color-input-border: #6b6b6b;
-  --color-input-border-hover: #8a8a8a;
+  --color-bg: #0d0d10;
+  --color-surface: #17171c;
+  --color-field: #101014;
+  --color-border: #2b2b34;
+  --color-input-border: #777783;
+  --color-input-border-hover: #a4a4b0;
 
-  --color-text-emphasis: #fafafa;
-  --color-text: #d4d4d4;
-  --color-muted: #a3a3a3;
+  --color-text-emphasis: #f5f3fa;
+  --color-text: #dedce5;
+  --color-muted: #aaa7b4;
 
-  --color-primary: #fafafa;
-  --color-primary-hover: #d4d4d4;
-  --color-primary-text: #0a0a0a;
-  --color-hover: #1f1f1f;
+  --color-primary: #a78bfa;
+  --color-primary-hover: #b9a4ff;
+  --color-primary-text: #170f25;
+  --color-accent: #a78bfa;
+  --color-hover: #24232c;
 
   --color-danger: #f87171;
   --color-danger-bg: #1f0a0a;
   --color-danger-border: #4c1414;
   --color-success: #4ade80;
-  --color-info-bg: #1a1a1a;
-  --color-info-border: #2e2e2e;
-  --color-focus: #fafafa;
+  --color-info-bg: #1d1930;
+  --color-info-border: #403468;
+  --color-focus: #c4b5fd;
 
-  --radius-sm: 10px;
-  --radius-md: 16px;
+  --radius-sm: 12px;
+  --radius-md: 18px;
   --control-height: 44px;
 
   --font-sans: 'Inter Variable', Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
@@ -71,12 +68,14 @@ a {
   color: var(--color-text-emphasis);
   font-weight: 500;
   text-decoration: underline;
-  text-decoration-color: rgb(250 250 250 / 35%);
+  color: #c4b5fd;
+  text-decoration-color: rgb(196 181 253 / 48%);
   text-underline-offset: 3px;
   transition: text-decoration-color 0.15s;
 }
 
 a:hover {
+  color: var(--color-text-emphasis);
   text-decoration-color: currentColor;
 }
 

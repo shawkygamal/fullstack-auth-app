@@ -3,7 +3,7 @@ import type { NavigationGuard, NavigationHookAfter, RouteLocationNormalized } fr
 import { RouteName } from '@/app/constants/route-names';
 import { useSessionStore } from '@/app/stores/session.store';
 
-const APP_TITLE = 'Auth App';
+const APP_TITLE = 'Studio';
 
 /** On the first navigation, asks the server (via the refresh cookie) whether we are still signed in, then gates routes. */
 export const sessionGuard: NavigationGuard = async to => {

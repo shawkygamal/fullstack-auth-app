@@ -44,16 +44,6 @@ const onSubmit = async () => {
   <form ref="form" class="form" novalidate @submit.prevent="onSubmit">
     <BaseAlert :messages="apiErrors" />
     <BaseInput
-      id="email"
-      v-model="form.email"
-      label="Email"
-      type="email"
-      autocomplete="username"
-      required
-      :error="errors.email"
-      @blur="touch('email')"
-    />
-    <BaseInput
       id="name"
       v-model="form.name"
       label="Name"
@@ -62,6 +52,16 @@ const onSubmit = async () => {
       :maxlength="NAME_MAX_LENGTH"
       :error="errors.name"
       @blur="touch('name')"
+    />
+    <BaseInput
+      id="email"
+      v-model="form.email"
+      label="Email"
+      type="email"
+      autocomplete="username"
+      required
+      :error="errors.email"
+      @blur="touch('email')"
     />
     <BaseInput
       id="password"
