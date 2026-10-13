@@ -1,0 +1,116 @@
+/* Global layer: design tokens, a minimal reset and a few utilities. Component styles live in their SFCs (scoped). */
+
+/* Deep charcoal surfaces with a restrained violet accent. */
+:root {
+  color-scheme: dark;
+
+  --color-bg: #0d0d10;
+  --color-surface: #17171c;
+  --color-field: #101014;
+  --color-border: #2b2b34;
+  --color-input-border: #777783;
+  --color-input-border-hover: #a4a4b0;
+
+  --color-text-emphasis: #f5f3fa;
+  --color-text: #dedce5;
+  --color-muted: #aaa7b4;
+
+  --color-primary: #7f5fdf;
+  /* Both ends keep white labels at 4.5:1 or more (WCAG AA). */
+  --color-primary-gradient: linear-gradient(110deg, var(--color-primary), #7048ed);
+  --color-primary-text: #fff;
+  --color-accent: #a78bfa;
+  --color-link: #c4b5fd;
+  /* Hue of the soft violet light behind the main content; each page mixes in its own strength. */
+  --color-glow: rgb(124 92 220);
+  --color-hover: #24232c;
+
+  --color-danger: #f87171;
+  --color-danger-bg: #1f0a0a;
+  --color-danger-border: #4c1414;
+  --color-success: #4ade80;
+  --color-info-bg: #1d1930;
+  --color-info-border: #403468;
+  --color-focus: var(--color-link);
+
+  --radius-sm: 10px;
+  --radius-md: 15px;
+  --control-height: 44px;
+
+  --font-sans: 'Inter Variable', Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Cal Sans', var(--font-sans);
+
+  font-family: var(--font-sans);
+  font-feature-settings: 'cv11', 'ss01';
+  line-height: 1.5;
+  color: var(--color-text);
+  background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-size-adjust: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--color-bg);
+}
+
+h1,
+p {
+  margin: 0;
+}
+
+/* Underlined, because links and the grey text around them are less than 3:1 apart (WCAG 1.4.1). */
+a {
+  color: var(--color-link);
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--color-link) 48%, transparent);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.15s;
+}
+
+a:hover {
+  color: var(--color-text-emphasis);
+  text-decoration-color: currentColor;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+::selection {
+  color: var(--color-primary-text);
+  background: var(--color-primary);
+}
+
+/* Hidden on screen, still read by screen readers. */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

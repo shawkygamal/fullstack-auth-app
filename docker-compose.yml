@@ -1,0 +1,43 @@
+# Full stack:  cp .env.example .env  (set JWT_SECRET), then  docker compose up --build  ->  http://localhost:8080
+# Database only, for local development:  docker compose up -d mongo
+services:
+  mongo:
+    image: mongo:8
+    container_name: auth-app-mongo
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  api:
+    build: ./backend
+    container_name: auth-app-api
+    restart: unless-stopped
+    environment:
+      MONGODB_URI: mongodb://mongo:27017/auth-app
+      JWT_SECRET: ${JWT_SECRET:?Set JWT_SECRET in .env}
+      JWT_EXPIRES_IN: ${JWT_EXPIRES_IN:-15m}
+      REFRESH_TOKEN_TTL_DAYS: ${REFRESH_TOKEN_TTL_DAYS:-7}
+      # true as soon as the site is served over HTTPS
+      COOKIE_SECURE: ${COOKIE_SECURE:-false}
+      # nginx (the web service) is the one proxy in front of the API
+      TRUST_PROXY_HOPS: 1
+      LOG_LEVEL: ${LOG_LEVEL:-log}
+      # API docs at http://localhost:8080/api/docs for trying the stack locally; set false for a real deployment
+      SWAGGER_ENABLED: ${SWAGGER_ENABLED:-true}
+    # Mongoose retries the connection, so the API can start before MongoDB is ready.
+    depends_on:
+      - mongo
+
+  web:
+    build: ./frontend
+    container_name: auth-app-web
+    restart: unless-stopped
+    ports:
+      - "${WEB_PORT:-8080}:80"
+    depends_on:
+      - api
+
+volumes:
+  mongo-data:
