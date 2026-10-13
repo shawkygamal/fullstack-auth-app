@@ -47,6 +47,8 @@ const onSubmit = async () => {
       id="name"
       v-model="form.name"
       label="Name"
+      placeholder="Enter your full name"
+      icon="user"
       autocomplete="name"
       required
       :maxlength="NAME_MAX_LENGTH"
@@ -57,7 +59,9 @@ const onSubmit = async () => {
       id="email"
       v-model="form.email"
       label="Email"
+      placeholder="name@example.com"
       type="email"
+      icon="email"
       autocomplete="username"
       required
       :error="errors.email"
@@ -67,7 +71,9 @@ const onSubmit = async () => {
       id="password"
       v-model="form.password"
       label="Password"
+      placeholder="Create a password"
       type="password"
+      icon="lock"
       autocomplete="new-password"
       required
       :maxlength="PASSWORD_MAX_LENGTH"

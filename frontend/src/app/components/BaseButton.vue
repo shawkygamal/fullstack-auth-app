@@ -41,7 +41,8 @@ withDefaults(
   transition:
     background 0.15s,
     border-color 0.15s,
-    transform 0.1s;
+    transform 0.1s,
+    filter 0.15s;
 }
 
 .button:active:not(:disabled) {
@@ -60,11 +61,11 @@ withDefaults(
 
 .button--primary {
   color: var(--color-primary-text);
-  background: var(--color-primary);
+  background: var(--color-primary-gradient, var(--color-primary));
 }
 
 .button--primary:hover:not(:disabled) {
-  background: var(--color-primary-hover);
+  filter: brightness(1.08);
 }
 
 .button--primary:disabled:not([aria-busy='true']) {

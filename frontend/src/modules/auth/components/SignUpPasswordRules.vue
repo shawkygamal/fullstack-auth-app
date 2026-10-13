@@ -5,7 +5,7 @@ defineProps<{ password: string }>();
 </script>
 
 <template>
-  <ul class="password-rules">
+  <ul class="password-rules" :class="{ 'visually-hidden': !password }">
     <li
       v-for="rule in PASSWORD_RULES"
       :key="rule.label"

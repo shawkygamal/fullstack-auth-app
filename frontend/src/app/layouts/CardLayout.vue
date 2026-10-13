@@ -5,10 +5,10 @@ defineProps<{ title: string; subtitle?: string }>();
 </script>
 
 <template>
-  <main class="card-layout" aria-labelledby="page-title">
-    <BaseBrand />
-    <section class="card">
+  <main class="card-layout">
+    <section class="card" aria-labelledby="page-title">
       <header class="card__header">
+        <BaseBrand :show-name="false" />
         <!-- tabindex=-1: the router moves focus here after each navigation, so screen readers announce the new page. -->
         <h1 id="page-title" class="card__title" tabindex="-1">
           {{ title }}
@@ -18,10 +18,10 @@ defineProps<{ title: string; subtitle?: string }>();
         </p>
       </header>
       <slot />
+      <footer v-if="$slots.footer" class="card-layout__footer">
+        <slot name="footer" />
+      </footer>
     </section>
-    <footer v-if="$slots.footer" class="card-layout__footer">
-      <slot name="footer" />
-    </footer>
   </main>
 </template>
 
@@ -30,10 +30,8 @@ defineProps<{ title: string; subtitle?: string }>();
   position: relative;
   isolation: isolate;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 28px;
   min-height: 100vh;
   min-height: 100svh;
   padding: 32px 16px;
@@ -43,7 +41,7 @@ defineProps<{ title: string; subtitle?: string }>();
 .card {
   position: relative;
   display: grid;
-  gap: 24px;
+  gap: 22px;
   width: 100%;
   max-width: 420px;
   padding: 32px;
@@ -54,14 +52,29 @@ defineProps<{ title: string; subtitle?: string }>();
 }
 
 @media (max-width: 480px) {
+  .card-layout {
+    padding-right: 28px;
+    padding-left: 28px;
+  }
+
   .card {
     padding: 24px 20px;
+  }
+
+  .card__title {
+    font-size: 1.5rem;
+  }
+
+  .card-layout__footer {
+    font-size: 0.8125rem;
   }
 }
 
 .card__header {
   display: grid;
-  gap: 6px;
+  justify-items: center;
+  gap: 16px;
+  text-align: center;
 }
 
 .card__title {
@@ -70,7 +83,7 @@ defineProps<{ title: string; subtitle?: string }>();
   font-size: 1.75rem;
   font-weight: 400;
   line-height: 1.2;
-  letter-spacing: 0.01em;
+  letter-spacing: -0.025em;
 }
 
 .card__title:focus {
@@ -84,6 +97,7 @@ defineProps<{ title: string; subtitle?: string }>();
 }
 
 .card-layout__footer {
+  padding-top: 2px;
   color: var(--color-muted);
   font-size: 0.875rem;
   text-align: center;

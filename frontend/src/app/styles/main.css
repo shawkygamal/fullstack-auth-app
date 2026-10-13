@@ -15,9 +15,10 @@
   --color-text: #dedce5;
   --color-muted: #aaa7b4;
 
-  --color-primary: #a78bfa;
-  --color-primary-hover: #b9a4ff;
-  --color-primary-text: #170f25;
+  --color-primary: #8b68f4;
+  --color-primary-hover: #9b7bff;
+  --color-primary-gradient: linear-gradient(110deg, #8b68f4, #7048ed);
+  --color-primary-text: #fff;
   --color-accent: #a78bfa;
   --color-hover: #24232c;
 
@@ -29,8 +30,8 @@
   --color-info-border: #403468;
   --color-focus: #c4b5fd;
 
-  --radius-sm: 12px;
-  --radius-md: 18px;
+  --radius-sm: 10px;
+  --radius-md: 15px;
   --control-height: 44px;
 
   --font-sans: 'Inter Variable', Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
@@ -65,10 +66,9 @@ p {
 
 /* Underlined, because grey body text and white links are less than 3:1 apart (WCAG 1.4.1). */
 a {
-  color: var(--color-text-emphasis);
+  color: #c4b5fd;
   font-weight: 500;
   text-decoration: underline;
-  color: #c4b5fd;
   text-decoration-color: rgb(196 181 253 / 48%);
   text-underline-offset: 3px;
   transition: text-decoration-color 0.15s;

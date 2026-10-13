@@ -1,10 +1,13 @@
+<script setup lang="ts">
+withDefaults(defineProps<{ showName?: boolean }>(), { showName: true });
+</script>
+
 <template>
   <div class="brand">
     <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true">
-      <path d="M16 2.5 19.8 12.2 29.5 16l-9.7 3.8L16 29.5l-3.8-9.7L2.5 16l9.7-3.8L16 2.5Z" fill="currentColor" />
-      <circle cx="16" cy="16" r="2.5" fill="var(--color-bg)" />
+      <path d="m3.5 24 9-16 7.1 12.5M18.5 24l5.1-9 5 9" />
     </svg>
-    <span>Studio</span>
+    <span v-if="showName">Studio</span>
   </div>
 </template>
 
@@ -20,8 +23,13 @@
 }
 
 .brand__mark {
-  width: 28px;
-  height: 28px;
+  width: 40px;
+  height: 32px;
   color: var(--color-accent);
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2.8;
 }
 </style>

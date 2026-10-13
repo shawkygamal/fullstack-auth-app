@@ -46,7 +46,9 @@ const onSubmit = async () => {
       id="email"
       v-model="form.email"
       label="Email"
+      placeholder="name@example.com"
       type="email"
+      icon="email"
       autocomplete="username"
       required
       :error="errors.email"
@@ -56,7 +58,9 @@ const onSubmit = async () => {
       id="password"
       v-model="form.password"
       label="Password"
+      placeholder="Enter your password"
       type="password"
+      icon="lock"
       autocomplete="current-password"
       required
       :error="errors.password"
