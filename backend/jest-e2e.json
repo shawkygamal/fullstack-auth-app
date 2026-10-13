@@ -1,0 +1,26 @@
+{
+  "rootDir": ".",
+  "roots": [
+    "<rootDir>/apps",
+    "<rootDir>/libs"
+  ],
+  "testRegex": ".*\\.e2e-spec\\.ts$",
+  "moduleFileExtensions": [
+    "js",
+    "json",
+    "ts"
+  ],
+  "transform": {
+    "^.+\\.ts$": "ts-jest"
+  },
+  "moduleNameMapper": {
+    "^@auth-app/api/(.*)$": "<rootDir>/apps/api/src/$1",
+    "^@auth-app/lib/([^/]+)$": "<rootDir>/libs/$1/src",
+    "^@auth-app/lib/([^/]+)/(.*)$": "<rootDir>/libs/$1/src/$2"
+  },
+  "testEnvironment": "node",
+  "setupFiles": [
+    "<rootDir>/test/setup-env.ts"
+  ],
+  "testTimeout": 30000
+}

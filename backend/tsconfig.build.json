@@ -1,0 +1,21 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "types": [
+      "node"
+    ]
+  },
+  "exclude": [
+    "node_modules",
+    "dist",
+    "test",
+    "apps/*/test",
+    "**/tests/**",
+    "**/*.spec.ts",
+    "**/*.e2e-spec.ts"
+  ],
+  "include": [
+    "apps/**/*",
+    "libs/**/*"
+  ]
+}

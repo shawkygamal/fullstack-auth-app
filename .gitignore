@@ -1,0 +1,7 @@
+node_modules
+dist
+coverage
+.env
+*.tsbuildinfo
+.eslintcache
+Full_Stack_Test_Task.pdf

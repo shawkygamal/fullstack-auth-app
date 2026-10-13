@@ -1,0 +1,58 @@
+{
+  "compilerOptions": {
+    "module": "nodenext",
+    "target": "ES2023",
+    "lib": [
+      "ES2023"
+    ],
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "strictPropertyInitialization": false,
+    "forceConsistentCasingInFileNames": true,
+    "sourceMap": true,
+    "outDir": "./dist",
+    "rootDir": "./",
+    "types": [
+      "node",
+      "jest"
+    ],
+    "paths": {
+      "@auth-app/api/*": [
+        "./apps/api/src/*"
+      ],
+      "@auth-app/lib/auth": [
+        "./libs/auth/src"
+      ],
+      "@auth-app/lib/auth/*": [
+        "./libs/auth/src/*"
+      ],
+      "@auth-app/lib/base-api": [
+        "./libs/base-api/src"
+      ],
+      "@auth-app/lib/base-api/*": [
+        "./libs/base-api/src/*"
+      ],
+      "@auth-app/lib/config": [
+        "./libs/config/src"
+      ],
+      "@auth-app/lib/config/*": [
+        "./libs/config/src/*"
+      ],
+      "@auth-app/lib/user": [
+        "./libs/user/src"
+      ],
+      "@auth-app/lib/user/*": [
+        "./libs/user/src/*"
+      ]
+    },
+    "isolatedModules": true
+  },
+  "include": [
+    "apps/**/*",
+    "libs/**/*",
+    "test/**/*"
+  ]
+}
