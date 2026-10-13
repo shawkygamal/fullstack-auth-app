@@ -19,7 +19,7 @@ const notices = computed(() => {
 </script>
 
 <template>
-  <CardLayout title="Welcome back" subtitle="Sign in to your account">
+  <CardLayout title="Welcome back" subtitle="Sign in to continue">
     <BaseAlert :messages="notices" variant="info" />
     <SignInForm />
     <template #footer>

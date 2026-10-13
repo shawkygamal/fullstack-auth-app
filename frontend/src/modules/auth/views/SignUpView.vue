@@ -5,7 +5,7 @@ import SignUpForm from '../components/SignUpForm.vue';
 </script>
 
 <template>
-  <CardLayout title="Create your account" subtitle="It only takes a minute">
+  <CardLayout title="Create your account" subtitle="Get started in seconds">
     <SignUpForm />
     <template #footer>
       Already have an account?
